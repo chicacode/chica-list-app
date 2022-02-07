@@ -17,7 +17,7 @@ const todos = [
 function App() {
   return (
     <Fragment>
-      <div className="max-w-md mx-auto md:max-w-2xl">
+      <div className="max-w-md mx-auto md:max-w-2xl w-full sm:w-1/2 md:w-3/4 my-4">
         <h1 className="text-3xl font-bold text-center text-white">
           What's the plan for Today
         </h1>
@@ -26,7 +26,7 @@ function App() {
 
         <TodoList>
           {todos.map(todo => (
-            <TodoItem text={todo.text} key={todo.text} />
+            <TodoItem text={todo.text} key={todo.text}/>
           ))}
         </TodoList>
       </div>

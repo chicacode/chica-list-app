@@ -3,7 +3,7 @@ import React from 'react';
 
 const TodoCounter = () =>{
     return(
-        <h2>You already complete: </h2>
+        <h2 className='flex justify-center items-center text-xl text-white p-12'>You already complete: </h2>
     )
 }
 
