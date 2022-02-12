@@ -15,7 +15,7 @@ const TodoSearch = ({searchValue, setSearchValue}) => {
             placeholder:italic placeholder:text-slate-400 block bg-white w-full 
             border border-slate-300 rounded-l-md py-1 pl-9 pr-3 
             shadow-sm focus:outline-none focus:border-purple-500 focus:ring-purple-500 
-            focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search" `} 
+            focus:ring-0 sm:text-sm" placeholder="Search for anything..." type="text" name="search" `} 
             value={searchValue}
             />
 

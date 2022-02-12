@@ -21,15 +21,52 @@ function App() {
   const completedTodo = todos.filter(todo => todo.completed === true).length;
   const totalTodos = todos.length;
 
+  // Filter
+  let searchedTodos = [];
+
+  if (!searchValue.length >= 1) {
+    searchedTodos = todos;
+  } else {
+    searchedTodos = todos.filter(todo => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText);
+    })
+  }
+
+  const completeTodo = (text) => {
+    // examinar todo por todo cual tiene exactamente ese mismo texto para obtener la posicion del array
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+
+    const newTodosList = [...todos];
+
+    newTodosList[todoIndex] = {
+      text: newTodosList[todoIndex].text,
+      completed: true
+    };
+
+    setTodos(newTodosList);
+  }
+
+  const deleteTodo = (text) => {
+    // examinar todo por todo cual tiene exactamente ese mismo texto para obtener la posicion del array
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+
+    const newTodosList = [...todos];
+
+    newTodosList.splice(todoIndex, 1)
+
+    setTodos(newTodosList);
+  }
   return (
     <Fragment>
       <div className="max-w-md mx-auto md:max-w-2xl w-full sm:w-1/2 md:w-3/4 my-4">
         <h1 className="text-3xl font-bold text-center text-white">
           What's the plan for Today
         </h1>
-        <TodoCounter 
-         total={totalTodos}
-         completed={completedTodo}
+        <TodoCounter
+          total={totalTodos}
+          completed={completedTodo}
         />
         <TodoSearch
           searchValue={searchValue}
@@ -37,8 +74,14 @@ function App() {
         />
 
         <TodoList>
-          {todos.map(todo => (
-            <TodoItem text={todo.text} key={todo.text} />
+          {searchedTodos.map(todo => (
+            <TodoItem
+              text={todo.text}
+              key={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
           ))}
         </TodoList>
       </div>
