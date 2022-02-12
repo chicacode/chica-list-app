@@ -2,21 +2,46 @@ import React, { Fragment, useState } from 'react';
 import './index.css';
 import TodoCounter from './components/TodoCounter';
 import TodoSearch from './components/TodoSearch';
-import CreateTodoButton from './components/CreateTodoButton';
 import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
 
-const defaultTodos = [
-  { text: 'Work', completed: false },
-  { text: 'Go to the gym', completed: false },
-  { text: 'Go to correos', completed: true },
-  { text: 'Practice Udemy', completed: false },
-  { text: 'study Platzi', completed: false },
-]
+// const defaultTodos = [
+//   { text: 'Work', completed: false },
+//   { text: 'Go to the gym', completed: false },
+//   { text: 'Go to correos', completed: true },
+//   { text: 'Practice Udemy', completed: false },
+//   { text: 'study Platzi', completed: false },
+// ]
+
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem)
+  }
+
+  const [item, setItem] = useState(parsedItem);
+
+  const saveItem = (newTodos) => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem(itemName, stringifiedTodos);
+    setItem(newTodos);
+  };
+
+  return [
+    item,
+    saveItem
+  ];
+
+}
 
 function App() {
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = useState('');
-  const [todos, setTodos] = useState(defaultTodos);
 
   const completedTodo = todos.filter(todo => todo.completed === true).length;
   const totalTodos = todos.length;
@@ -34,6 +59,8 @@ function App() {
     })
   }
 
+
+
   const completeTodo = (text) => {
     // examinar todo por todo cual tiene exactamente ese mismo texto para obtener la posicion del array
     const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -45,7 +72,7 @@ function App() {
       completed: true
     };
 
-    setTodos(newTodosList);
+    saveTodos(newTodosList);
   }
 
   const deleteTodo = (text) => {
@@ -56,7 +83,7 @@ function App() {
 
     newTodosList.splice(todoIndex, 1)
 
-    setTodos(newTodosList);
+    saveTodos(newTodosList);
   }
   return (
     <Fragment>
