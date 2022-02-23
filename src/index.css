@@ -10,7 +10,7 @@ body{
 
 #root{
     min-height: 100vh;
-    margin: 0 24px;
+    margin: 0 auto;
     position: relative;
 }
 

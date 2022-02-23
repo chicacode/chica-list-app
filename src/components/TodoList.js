@@ -5,10 +5,10 @@ const Todolist = (props) => {
     return (
         <section>
             <ul>
-               {props.children}
+                {props.children}
             </ul>
         </section>
     );
 }
 
-export default Todolist;
+export  default Todolist;

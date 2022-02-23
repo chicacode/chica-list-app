@@ -25,4 +25,4 @@ const TodoSearch = ({searchValue, setSearchValue}) => {
     )
 }
 
-export default TodoSearch;
+export {TodoSearch};

@@ -26,4 +26,4 @@ const TodoItem = (props) => {
     )
 }
 
-export default TodoItem;
+export {TodoItem};
