@@ -2,7 +2,7 @@ import React from 'react';
 import CreateTodoButton from './CreateTodoButton';
 
 
-const TodoSearch = ({searchValue, setSearchValue}) => {
+const TodoSearch = ({searchValue, setSearchValue, setOpenModal}) => {
 
     const onChangeValueSearch = (event) =>{
         setSearchValue(event.target.value)
@@ -19,7 +19,7 @@ const TodoSearch = ({searchValue, setSearchValue}) => {
             value={searchValue}
             />
 
-            <CreateTodoButton />
+            <CreateTodoButton setOpenModal={setOpenModal}/>
         </div>
 
     )

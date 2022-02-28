@@ -11,8 +11,6 @@ let randomColor = bgColor[Math.floor(Math.random() * bgColor.length)];
 
 const TodoItem = (props) => {
 
-    console.log(props);
-
     return (
         <li className="TodoItem">
             <span
