@@ -42,19 +42,12 @@ function AppUI() {
             </TodoList>
             {openModal && (
                 <Modal>
-                    <div id="defaultModal" aria-hidden="true" className="overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
-                        <div className="relative px-4 w-full max-w-2xl h-full md:h-auto">
+                    <div id="defaultModal" aria-hidden="true" className="overflow-y-auto overflow-x-hidden flex justify-center top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+                        <div className="relative px-1 w-full h-full md:h-auto">
 
-                            <div className="relative bg-white rounded-lg shadow bg-stone-50">
-                                <div className="flex justify-between items-start p-5 rounded-t border-b">
-                                    <h3 className="text-xl font-semibold dark:text-blue-700 lg:text-2xl">
-                                        {searchedTodos[0]?.text}
-                                    </h3>
-                                </div>
+                            <div className="relative bg-white rounded-lg shadow bg-stone-50 p-4">
                                 <TodoForm />
 
-
-         
                             </div>
                         </div>
                     </div>
