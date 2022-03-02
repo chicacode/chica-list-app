@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/chica-list-app/static/css/main.8032c3c1.css",
+    "main.js": "/chica-list-app/static/js/main.427fff7f.js",
+    "index.html": "/chica-list-app/index.html",
+    "main.8032c3c1.css.map": "/chica-list-app/static/css/main.8032c3c1.css.map",
+    "main.427fff7f.js.map": "/chica-list-app/static/js/main.427fff7f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8032c3c1.css",
+    "static/js/main.427fff7f.js"
+  ]
+}
