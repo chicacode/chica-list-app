@@ -1,9 +1,9 @@
 import React from 'react';
 import CreateTodoButton from './CreateTodoButton';
+import { TodoContext } from '../TodoContext';
 
-
-const TodoSearch = ({searchValue, setSearchValue, setOpenModal}) => {
-
+const TodoSearch = ({setOpenModal}) => {
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
     const onChangeValueSearch = (event) =>{
         setSearchValue(event.target.value)
     }

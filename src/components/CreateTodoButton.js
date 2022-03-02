@@ -9,7 +9,7 @@ const CreateTodoButton = (props) => {
         <button
             onClick={onClickButton}
             type="button"
-            className={`bg-purple-500 hover:bg-purple-300 text-white hover:text-purple-800 font-bold py-2 px-4 rounded-r-md cursor-pointer z-10`}>
+            className={`bg-gray-50 hover:bg-sky-100 text-neutral-600 hover:text-neutral-800 font-bold py-2 px-4 rounded-r-md cursor-pointer z-10`}>
             Add Todo
         </button>
     )

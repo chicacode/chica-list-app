@@ -40,6 +40,19 @@ function TodoProvider(props) {
         saveTodos(newTodosList);
     }
 
+    const addTodo = (text) => {
+       
+        const newTodosList = [...todos];
+
+        newTodosList.push({
+            completed: false,
+            text,
+        })
+
+        saveTodos(newTodosList);
+    }
+
+
     const deleteTodo = (text) => {
         // examinar todo por todo cual tiene exactamente ese mismo texto para obtener la posicion del array
         const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -59,6 +72,7 @@ function TodoProvider(props) {
                 searchValue,
                 setSearchValue,
                 searchedTodos,
+                addTodo,
                 completeTodo,
                 deleteTodo,
                 openModal,

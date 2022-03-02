@@ -1,9 +1,10 @@
 import React from 'react';
+import { TodoContext } from '../TodoContext';
 
-
-const TodoCounter = ({ total, completed }) => {
+const TodoCounter = () => {
+    const { totalTodos, completedTodo} = React.useContext(TodoContext);
     return (
-        <h2 className='flex justify-center items-center text-xl text-white p-12'>You already complete: {completed} from {total} TODOS</h2>
+        <h2 className='flex justify-center items-center text-lg text-white p-8'>You already complete: {completedTodo} from {totalTodos} TODOs</h2>
     )
 }
 

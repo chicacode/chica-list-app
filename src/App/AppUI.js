@@ -22,6 +22,7 @@ function AppUI() {
 
     return (
         <React.Fragment>
+            <h1 className='flex justify-center items-center text-xl text-neutral-100 pt-10'>Happy List</h1>
             <TodoCounter />
             <TodoSearch setOpenModal={setOpenModal}/>
 
